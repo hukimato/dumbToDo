@@ -29,7 +29,7 @@ const taskInput = document.querySelector('#taskInput');
 const tasksList = document.querySelector('#tasksList');
 const emptyList = document.querySelector('#emptyList');
 
-let tasks = localStorage.getItem('tasks')? fillTasksArray(JSON.parse(localStorage.getItem('tasks'))) : null;
+let tasks = fillTasksArray(JSON.parse(localStorage.getItem('tasks')));
 
 checkEmptyList();
 
@@ -47,7 +47,7 @@ tasksList.addEventListener('click', doneTask);
 
 function fillTasksArray (obj) {
     let temporalTasks = [];
-    if (obj.length > 0) {
+    if (obj !== null && obj.length > 0) {
         Object.keys(obj).forEach(function (key) {
             temporalTasks[key] = new Task(obj[key].title, obj[key].status, obj[key].id);
         });
