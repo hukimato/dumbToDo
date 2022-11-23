@@ -29,7 +29,7 @@ const taskInput = document.querySelector('#taskInput');
 const tasksList = document.querySelector('#tasksList');
 const emptyList = document.querySelector('#emptyList');
 
-let tasks = fillTasksArray(JSON.parse(localStorage.getItem('tasks')));
+let tasks = localStorage.getItem('tasks')? fillTasksArray(JSON.parse(localStorage.getItem('tasks'))) : null;
 
 checkEmptyList();
 
